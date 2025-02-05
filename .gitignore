@@ -1,0 +1,19 @@
+# Python仮想環境・依存関係
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# SQLiteなどのローカルDB（必要なら追加）
+*.db
+*.sqlite
+
+# 環境変数・認証情報
+.env
+*.secret
+
+# Node.js（Next.jsの依存関係）
+node_modules/
+.next/
+package-lock.json
+yarn.lock
