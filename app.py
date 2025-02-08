@@ -20,7 +20,13 @@ class Customer(BaseModel):
     gender: str
 
 
-app = FastAPI()
+app = FastAPI(
+    title="My FastAPI App",
+    description="This is a FastAPI application",
+    version="1.0",
+    docs_url="/docs",  # ← ここがないと `/docs` は使えない！
+    redoc_url="/redoc"  # ← これは ReDoc（任意）
+)
 
 # CORSミドルウェアの設定
 app.add_middleware(
