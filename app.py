@@ -4,8 +4,7 @@ from pydantic import BaseModel, Field
 import requests
 import json
 from db_control import crud, mymodels_MySQL
-import os
-import uvicorn
+
 
 # MySQLのテーブル作成
 # from db_control.create_tables import init_db
@@ -96,7 +95,3 @@ def fetchtest():
 
 
 
-# Uvicornの起動コード を追加
-if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8080))  # Azure App Service はデフォルトで 8080 を使用
-    uvicorn.run(app, host="0.0.0.0", port=port)
