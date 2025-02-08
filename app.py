@@ -5,6 +5,9 @@ import requests
 import json
 from db_control import crud, mymodels_MySQL
 
+import pymysql
+import os
+
 
 # MySQLのテーブル作成
 # from db_control.create_tables import init_db
@@ -101,3 +104,18 @@ def fetchtest():
 
 
 
+@app.get("/test-db")
+def test_db_connection():
+    try:
+        conn = pymysql.connect(
+            host="tech0-gen-9-step3-1-db-3.mysql.database.azure.com",
+            user="tech0gen9student",
+            password="vY7JZNfU",
+            database="step3-1_enchan_db",
+            port=3306,
+            ssl_ca="/Users/ayu/Tech0/Step3/Step3-1/practical/sample4/DigiCertGlobalRootCA.crt.pem"
+        )
+        conn.close()
+        return {"message": "✅ FastAPI から MySQL に接続成功！"}
+    except Exception as e:
+        return {"error": str(e)}
